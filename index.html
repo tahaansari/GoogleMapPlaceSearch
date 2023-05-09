@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <input id="pac-input" class="controls" type="text" placeholder="Enter Your Search" />
+    <div id="map-canvas"></div>
+  </body>
+  <script>
+    const successCallback = (position) => {
+      console.log(position);
+    };
+
+    const errorCallback = (error) => {
+      console.log(error);
+    };
+
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+    const URL =
+      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyALWY4oUT9CUWWgWjaIlPPgwReg8kuVJeo&location=-18.9755685,72.8282343&radius=5000&type=restaurant";
+
+    fetch(URL)
+      .then((data) => {
+        return data.json();
+      })
+      .then((jsonData) => {
+        console.log(jsonData.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  </script>
+</html>
