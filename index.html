@@ -5,29 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Hello World</h1>
-    <input id="pac-input" class="controls" type="text" placeholder="Enter Your Search" />
-    <div id="map-canvas"></div>
-  </body>
+  <body></body>
   <script>
-    const successCallback = (position) => {
-      console.log(position);
-    };
 
-    const errorCallback = (error) => {
-      console.log(error);
-    };
+    // const successCallback = (position) => {
+    //   console.log(position);
+    // };
 
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    // const errorCallback = (error) => {
+    //   console.log(error);
+    // };
 
-    const URL =
-      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyALWY4oUT9CUWWgWjaIlPPgwReg8kuVJeo&location=-18.9755685,72.8282343&radius=5000&type=restaurant";
+    // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+    const URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyA1CNOzDRK_7kj6rKs3q91FemXCfG6ppnE&location=18.9754603,72.8283965&rankby=distance&type=hospital";
 
     fetch(URL)
       .then((data) => {
-        return data.json();
+        // return data.json();
+        console.log(data.json());
       })
       .then((jsonData) => {
         console.log(jsonData.results);
@@ -35,5 +38,6 @@
       .catch((error) => {
         console.log(error);
       });
+
   </script>
 </html>
